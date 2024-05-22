@@ -1,0 +1,5 @@
+package com.example.listingmovie.api
+
+object ApiKey {
+    val key = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGJhOWZhZjY4NDQxNGEzOTU4YTg3ZTdkNDc5MDQwMiIsInN1YiI6IjY2NDQ2MWFmNDRhMDkxOGFkZTNhYjFmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PIJvn_qCog6U6tj0spfNNrx3-gT7aICmFYKLbpCZPvo"
+}

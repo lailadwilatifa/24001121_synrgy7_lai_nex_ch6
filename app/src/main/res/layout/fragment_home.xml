@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="24dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".presentation.fragments.HomeFragment">
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/progress_bar"

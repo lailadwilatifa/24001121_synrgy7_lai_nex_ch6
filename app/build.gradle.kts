@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -74,4 +76,26 @@ dependencies {
     //glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    //coroutines lifecycle scopes
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    //di
+    implementation("com.google.dagger:hilt-android:2.44")
+
+    kapt ("com.google.dagger:hilt-compiler:2.48")
+    kapt ("androidx.hilt:hilt-compiler:1.0.0")
+
+    implementation("com.mikepenz:fastadapter:5.6.0")
+
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+}
+
+kapt {
+    correctErrorTypes = true
 }

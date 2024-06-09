@@ -1,4 +1,4 @@
-package com.example.listingmovie.adapters
+package com.example.listingmovie.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.listingmovie.model.Result
-import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.example.listingmovie.data.remote.response.Result
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.listingmovie.R
@@ -32,12 +31,12 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     fun submitData(value: List<Result?>?) = differ.submitList(value)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(ItemMovieBinding.inflate(inflater, parent, false))
     }
 
-    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = differ.currentList[position]
         data.let { holder.bind(data) }
     }

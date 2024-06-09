@@ -1,6 +1,5 @@
-package com.example.listingmovie.fragments
+package com.example.listingmovie.presentation.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,25 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.listingmovie.R
 import com.example.listingmovie.databinding.FragmentLoginBinding
-import com.example.listingmovie.viewmodel.LoginViewModel
-import com.example.listingmovie.viewmodel.ViewModelFactory
+import com.example.listingmovie.presentation.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
-    private val viewModel: LoginViewModel by viewModels {
-        ViewModelFactory.getInstance(requireContext())
-    }
+    private lateinit var viewModel: LoginViewModel
 
     var email = ""
     var password = ""
     var isLogged = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

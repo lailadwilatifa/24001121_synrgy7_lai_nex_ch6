@@ -1,4 +1,4 @@
-package com.example.listingmovie.fragments
+package com.example.listingmovie.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,7 +26,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val result = DetailFragmentArgs.fromBundle(arguments as Bundle).result
+        val result = com.example.listingmovie.presentation.fragments.DetailFragmentArgs.fromBundle(arguments as Bundle).result
 
         binding.tvTitle.text = result?.title
         binding.tvOverview.text = result?.overview

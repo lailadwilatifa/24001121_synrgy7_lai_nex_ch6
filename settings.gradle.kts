@@ -3,6 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter()
     }
 }
 dependencyResolutionManagement {
@@ -10,9 +11,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 
 rootProject.name = "Listing Movie"
 include(":app")
- 
+include(":common")
+include(":domain")
+include(":data")

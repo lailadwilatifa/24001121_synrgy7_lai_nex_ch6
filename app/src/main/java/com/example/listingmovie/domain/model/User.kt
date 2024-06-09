@@ -1,4 +1,4 @@
-package com.example.listingmovie.model
+package com.example.listingmovie.domain.model
 
 data class User(
     val username: String,

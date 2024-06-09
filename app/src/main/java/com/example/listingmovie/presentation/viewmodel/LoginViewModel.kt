@@ -1,14 +1,19 @@
-package com.example.listingmovie.viewmodel
+package com.example.listingmovie.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.listingmovie.helper.UserDataStoreManager
-import com.example.listingmovie.model.User
+import com.example.listingmovie.data.local.UserDataStoreManager
+import com.example.listingmovie.domain.model.User
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel (private val pref:UserDataStoreManager) : ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val pref: UserDataStoreManager
+) : ViewModel() {
     fun saveLogin(isLogged: Boolean){
         viewModelScope.launch {
             pref.setIsLogged(isLogged)

@@ -1,8 +1,8 @@
-package com.example.listingmovie.data.repository
+package com.example.data.repository
 
-import com.example.listingmovie.data.remote.TmdbApi
-import com.example.listingmovie.data.remote.response.MovieResponse
-import com.example.listingmovie.domain.repository.TmdbRepository
+import com.example.data.remote.TmdbApi
+import com.example.domain.model.MovieResponse
+import com.example.domain.repository.TmdbRepository
 import javax.inject.Inject
 
 class TmdbRepositoryImpl @Inject constructor(

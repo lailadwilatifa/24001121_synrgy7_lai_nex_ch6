@@ -6,12 +6,13 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.listingmovie.data.remote.response.Result
+import com.example.domain.model.Result
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.listingmovie.R
 import com.example.listingmovie.databinding.ItemMovieBinding
-import com.example.listingmovie.fragments.HomeFragmentDirections
+import com.example.listingmovie.presentation.fragments.HomeFragmentDirections
+
 
 class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 

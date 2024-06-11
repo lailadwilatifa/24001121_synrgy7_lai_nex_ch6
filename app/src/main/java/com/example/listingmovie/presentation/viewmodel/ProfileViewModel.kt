@@ -14,9 +14,8 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.example.listingmovie.common.Constants
-import com.example.listingmovie.data.local.UserDataStoreManager
-import com.example.listingmovie.domain.model.User
+import com.example.common.Constants
+import com.example.domain.model.User
 import com.example.listingmovie.workers.BlurWorker
 import com.example.listingmovie.workers.CleanupWorker
 import com.example.listingmovie.workers.SaveImageToFileWorker
@@ -27,14 +26,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val pref: UserDataStoreManager,
+    private val pref: com.example.data.local.UserDataStoreManager,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private var imageUri: Uri? = null
     internal var outputUri: Uri? = null
     private val workManager = WorkManager.getInstance(context)
-    internal val outputWorkInfos: LiveData<List<WorkInfo>> = workManager.getWorkInfosByTagLiveData(Constants.TAG_OUTPUT)
+    internal val outputWorkInfos: LiveData<List<WorkInfo>> = workManager.getWorkInfosByTagLiveData(
+        Constants.TAG_OUTPUT)
 
     internal fun cancelWork() {
         workManager.cancelUniqueWork(Constants.IMAGE_MANIPULATION_WORK_NAME)
@@ -117,5 +117,4 @@ class ProfileViewModel @Inject constructor(
             pref.setIsLogged(isLogged)
         }
     }
-
 }

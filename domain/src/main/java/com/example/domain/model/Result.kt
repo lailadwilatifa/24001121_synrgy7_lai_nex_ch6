@@ -1,4 +1,4 @@
-package com.example.listingmovie.data.remote.response
+package com.example.domain.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

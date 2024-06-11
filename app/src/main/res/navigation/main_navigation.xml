@@ -45,7 +45,7 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="result"
-            app:argType="com.example.listingmovie.data.remote.response.Result"
+            app:argType="com.example.domain.model.Result"
             app:nullable="true" />
     </fragment>
     <fragment

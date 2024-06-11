@@ -1,11 +1,11 @@
-package com.example.listingmovie.data.local
+package com.example.data.local
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.listingmovie.domain.model.User
+import com.example.domain.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -24,6 +24,8 @@ class UserDataStoreManager (private val context: Context) {
             preferences[NAMA_LENGKAP_KEY] = user.namaLengkap
             preferences[ALAMAT_KEY] = user.alamat
             preferences[TANGGAL_LAHIR_KEY] = user.tanggalLahir
+            preferences[FOTO_KEY] = user.foto
+
         }
     }
 
@@ -35,7 +37,8 @@ class UserDataStoreManager (private val context: Context) {
                 preferences[PASSWORD_KEY] ?: "",
                 preferences[NAMA_LENGKAP_KEY] ?: "",
                 preferences[TANGGAL_LAHIR_KEY] ?: "",
-                preferences[ALAMAT_KEY] ?: ""
+                preferences[ALAMAT_KEY] ?: "",
+                preferences[FOTO_KEY] ?: "",
             )
         }
     }
@@ -61,6 +64,7 @@ class UserDataStoreManager (private val context: Context) {
         private val NAMA_LENGKAP_KEY = stringPreferencesKey("nama_lengkap_key")
         private val TANGGAL_LAHIR_KEY = stringPreferencesKey("tanggal_lahir_key")
         private val ALAMAT_KEY = stringPreferencesKey("alamat_key")
+        private val FOTO_KEY = stringPreferencesKey("foto_key")
         private val IS_LOGGED_IN_KEY = booleanPreferencesKey("is_logged_in_key")
 
         private val Context.userDataStore by preferencesDataStore(

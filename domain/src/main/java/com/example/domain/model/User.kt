@@ -1,4 +1,4 @@
-package com.example.listingmovie.domain.model
+package com.example.domain.model
 
 data class User(
     val username: String,
@@ -6,5 +6,6 @@ data class User(
     val password: String,
     val namaLengkap: String,
     val alamat: String,
-    val tanggalLahir: String
+    val tanggalLahir: String,
+    val foto: String
 )

@@ -12,7 +12,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.listingmovie.R
 import com.example.listingmovie.databinding.FragmentRegisterBinding
-import com.example.listingmovie.domain.model.User
+import com.example.domain.model.User
 import com.example.listingmovie.presentation.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,6 +60,7 @@ class RegisterFragment : Fragment() {
                         binding.usernameEditText.text.toString(),
                         binding.emailEditText.text.toString(),
                         password,
+                        "",
                         "",
                         "",
                         ""

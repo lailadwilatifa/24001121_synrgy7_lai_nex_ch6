@@ -1,6 +1,6 @@
 package com.example.listingmovie.api
 
-import com.example.listingmovie.data.remote.response.MovieResponse
+import com.example.domain.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 

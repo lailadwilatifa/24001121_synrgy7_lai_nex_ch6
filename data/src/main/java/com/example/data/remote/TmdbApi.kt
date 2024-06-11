@@ -1,7 +1,7 @@
-package com.example.listingmovie.data.remote
+package com.example.data.remote
 
-import com.example.listingmovie.common.Constants
-import com.example.listingmovie.data.remote.response.MovieResponse
+import com.example.common.Constants
+import com.example.domain.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 

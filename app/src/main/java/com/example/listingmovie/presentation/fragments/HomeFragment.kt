@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,8 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.listingmovie.R
 import com.example.listingmovie.presentation.adapters.HomeAdapter
 import com.example.listingmovie.databinding.FragmentHomeBinding
-import com.example.listingmovie.helper.Status
-import com.example.listingmovie.data.remote.response.Result
+import com.example.domain.model.Result
 import com.example.listingmovie.presentation.state.MovieListState
 import com.example.listingmovie.presentation.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint

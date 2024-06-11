@@ -1,6 +1,6 @@
 package com.example.listingmovie.presentation.state
 
-import com.example.listingmovie.data.remote.response.Result
+import com.example.domain.model.Result
 
 sealed interface MovieListState {
     object Loading : MovieListState

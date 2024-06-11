@@ -20,16 +20,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.work.WorkInfo
-import com.example.listingmovie.R
-import com.example.listingmovie.common.Constants
+import com.example.common.Constants
 import com.example.listingmovie.databinding.FragmentProfileBinding
-import com.example.listingmovie.domain.model.User
+import com.example.domain.model.User
+import com.example.listingmovie.R
 import com.example.listingmovie.presentation.viewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,6 +40,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: ProfileViewModel
+    private var imageUri = ""
 
     private val REQUEST_CODE_PERMISSION = 100
 
@@ -93,7 +93,8 @@ class ProfileFragment : Fragment() {
                 "",
                 binding.namaLengkapEditText.text.toString(),
                 binding.tanggalLahirEditText.text.toString(),
-                binding.alamatEditText.text.toString()
+                binding.alamatEditText.text.toString(),
+                imageUri
             )
 
             viewModel.saveProfile(user)
@@ -102,16 +103,12 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnLogout.setOnClickListener {
-            viewModel.outputUri?.let { currentUri ->
-                Log.d(TAG, "currenturi $currentUri")
-                binding.imgProfile.setImageURI(currentUri)
-            }
-//            viewModel.saveLogin(false)
-//            findNavController().navigate(
-//                R.id.action_profileFragment_to_loginFragment,
-//                null,
-//                NavOptions.Builder().setPopUpTo(R.id.profileFragment, true).build()
-//            )
+            viewModel.saveLogin(false)
+            findNavController().navigate(
+                R.id.action_profileFragment_to_loginFragment,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.profileFragment, true).build()
+            )
         }
     }
 
@@ -139,6 +136,7 @@ class ProfileFragment : Fragment() {
 
                 // If there is an output file show "See File" button
                 if (!outputImageUri.isNullOrEmpty()) {
+                    imageUri = outputImageUri
                     viewModel.setOutputUri(outputImageUri)
                     binding.imgProfile.setImageURI(Uri.parse(outputImageUri))
 //                    binding.seeFileButton.visibility = View.VISIBLE
@@ -166,7 +164,8 @@ class ProfileFragment : Fragment() {
                 REQUEST_CODE_PERMISSION
             )
         ) {
-            chooseImageDialog()
+            openGallery()
+//            chooseImageDialog()
         }
     }
 
@@ -235,6 +234,10 @@ class ProfileFragment : Fragment() {
             binding.namaLengkapEditText.setText(result.namaLengkap)
             binding.tanggalLahirEditText.setText(result.tanggalLahir)
             binding.alamatEditText.setText(result.alamat)
+            imageUri = result.foto
+            if (imageUri.isNotBlank()) {
+                binding.imgProfile.setImageURI(Uri.parse(imageUri))
+            }
         }
     }
 

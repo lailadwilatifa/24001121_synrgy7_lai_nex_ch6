@@ -15,7 +15,7 @@ import androidx.annotation.WorkerThread
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.listingmovie.R
-import com.example.listingmovie.common.Constants
+import com.example.common.Constants
 import okio.FileNotFoundException
 import java.io.File
 import java.io.FileOutputStream

@@ -4,23 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import com.example.listingmovie.common.Resource
-import com.example.listingmovie.data.local.UserDataStoreManager
-import com.example.listingmovie.domain.model.User
-import com.example.listingmovie.domain.usecase.GetMovieNowPlayingUseCase
+import com.example.common.Resource
+import com.example.domain.model.User
+import com.example.domain.usecase.GetMovieNowPlayingUseCase
 import com.example.listingmovie.presentation.state.MovieListState
-import com.example.listingmovie.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val pref: UserDataStoreManager,
+    private val pref: com.example.data.local.UserDataStoreManager,
     private val getMovieNowPlayingUseCase: GetMovieNowPlayingUseCase
 ) : ViewModel() {
 

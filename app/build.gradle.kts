@@ -86,14 +86,18 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
 
     //di
-    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("com.google.dagger:hilt-android:2.42")
 
-    kapt ("com.google.dagger:hilt-compiler:2.48")
+    kapt ("com.google.dagger:hilt-compiler:2.42")
     kapt ("androidx.hilt:hilt-compiler:1.0.0")
 
     implementation("com.mikepenz:fastadapter:5.6.0")
 
     implementation("androidx.work:work-runtime-ktx:2.7.1")
+
+    implementation(project(":common"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
 }
 
 kapt {

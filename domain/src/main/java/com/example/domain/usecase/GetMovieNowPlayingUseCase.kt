@@ -1,8 +1,9 @@
-package com.example.listingmovie.domain.usecase
+package com.example.domain.usecase
 
-import com.example.listingmovie.common.Resource
-import com.example.listingmovie.data.remote.response.MovieResponse
-import com.example.listingmovie.domain.repository.TmdbRepository
+
+import com.example.common.Resource
+import com.example.domain.model.MovieResponse
+import com.example.domain.repository.TmdbRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
